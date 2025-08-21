@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- This tag is crucial for responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dunga Tejas | UI/UX Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;700&family=Montserrat:wght@700;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* --- CSS Variables and Global Styles (Mobile First) --- */
+    :root {
+      --bg-color: #000000;
+      --primary-text: #f0f8ff;
+      /* aliceblue */
+      --brand-green: #3bd33b;
+      --card-bg: #1a1a1a;
+      --header-bg: rgba(40, 39, 39, 0.85);
+      --font-body: "Encode Sans", sans-serif;
+      --font-heading: "Montserrat", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      margin: 0;
+      /* Adjust padding-top based on mobile nav height */
+      padding-top: 150px;
+      color: var(--primary-text);
+      font-family: var(--font-body);
+    }
+
+    /* --- Reusable Container --- */
+    .container {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* --- Header & Navigation (CSS-Only) --- */
+    .navbar {
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      /* Center items for mobile */
+      align-items: center;
+      flex-wrap: wrap;
+      /* Allow items to wrap */
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 5px 5%;
+      box-sizing: border-box;
+    }
+
+    .logo-img {
+      height: 60px;
+    }
+
+    /* Navigation links are now always visible and wrap on mobile */
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .a-element {
+      padding: 8px 12px;
+      color: var(--primary-text);
+      font-size: 16px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: block;
+    }
+
+    .a-element:hover {
+      color: var(--brand-green);
+    }
+
+    /* --- Section Styling --- */
+    section {
+      padding: 48px 0;
+    }
+
+    .home {
+      display: flex;
+      flex-direction: column;
+      /* Photo on top, text on bottom for mobile */
+      align-items: center;
+      text-align: center;
+      min-height: calc(100vh - 150px);
+      justify-content: center;
+    }
+
+    .home-content {
+      width: 100%;
+    }
+
+    .image-logo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 4px solid var(--brand-green);
+      margin-bottom: 32px;
+    }
+
+    .home-h1 {
+      font-family: var(--font-heading);
+      font-size: 40px;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .home-h1 .highlight {
+      color: var(--brand-green);
+    }
+
+    .home-tagline {
+      font-size: 19px;
+      color: #aaa;
+      margin: 16px 0 32px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--brand-green);
+      color: var(--bg-color);
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+      background-color: #32b832;
+    }
+
+    .about-p {
+      text-align: justify;
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 16px 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      color: var(--brand-green);
+      letter-spacing: 2px;
+      font-size: 35px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .title-underline {
+      width: 80px;
+      height: 4px;
+      background-color: var(--brand-green);
+      margin: 0 auto 40px;
+    }
+
+    .service-sub-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .Services-card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--brand-green);
+      padding: 24px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .Services-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(59, 211, 59, 0.2);
+    }
+
+    .sc-h1 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      margin: 0 0 8px 0;
+    }
+
+    .sc-p {
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-info p {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    .social-icon-img {
+      height: 45px;
+      margin: 0 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon-img:hover {
+      transform: scale(1.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 32px;
+      border-top: 1px solid #222;
+      color: #888;
+    }
+
+    /* ==============================================
+        MEDIA QUERIES
+        ==============================================
+        */
+
+    /* sm: Small screens (640px and up) */
+    @media (min-width: 640px) {
+      .container {
+        width: 85%;
+      }
+
+      .home-h1 {
+        font-size: 48px;
+      }
+
+      .image-logo {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    /* md: Medium screens (tablets, 768px and up) */
+    @media (min-width: 768px) {
+      body {
+        padding-top: 70px;
+        /* Reset padding for horizontal navbar */
+      }
+
+      .navbar {
+        justify-content: space-between;
+        /* Space out logo and links */
+        flex-wrap: nowrap;
+      }
+
+      .nav-links {
+        width: auto;
+        /* Allow nav to size to content */
+      }
+
+      .a-element {
+        font-size: 18px;
+        /* large */
+        padding: 10px;
+        margin: 0 10px;
+      }
+
+      /* CORRECTED: Apply flexbox to the container inside .home */
+      .home .container {
+        display: flex;
+        flex-direction: row-reverse;
+        /* Text on left, photo on right */
+        justify-content: space-between;
+        align-items: center;
+        gap: 32px;
+        /* Add space between text and image */
+      }
+
+      .home {
+        text-align: left;
+        /* Align text to the left on desktop */
+        min-height: calc(100vh - 70px);
+      }
+
+      .home-content {
+        width: 55%;
+      }
+
+      .home-image {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .image-logo {
+        margin-bottom: 0;
+      }
+
+      .service-sub-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* CORRECTED: Use flexbox for equal width cards */
+      .Services-card {
+        flex: 1 1 300px;
+        /* Grow and shrink from a 300px basis */
+        max-width: 400px;
+        /* Prevent cards from getting too wide */
+        width: auto;
+        /* Override the mobile width: 100% */
+      }
+    }
+
+    /* lg: Large screens (laptops, 1024px and up) */
+    @media (min-width: 1024px) {
+      .container {
+        width: 80%;
+        max-width: 1100px;
+      }
+
+      .home-h1 {
+        font-size: 56px;
+      }
+
+      .about-p {
+        font-size: 18px;
+      }
+
+      .image-logo {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    /* xl: Extra Large screens (desktops, 1280px and up) */
+    @media (min-width: 1280px) {
+      .container {
+        max-width: 1200px;
+      }
+
+      .home-h1 {
+        font-size: 64px;
+      }
+    }
+
+    /* 2xl: 2x Extra Large screens (large monitors, 1440px and up) */
+    @media (min-width: 1440px) {
+      .container {
+        max-width: 1300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Use semantic HTML tags for better structure and SEO -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="#home">
+        <img class="logo-img"
+          src="https://res.cloudinary.com/deqfgxqqe/image/upload/v1755691091/Logo2_e_background_removal_f_png_e_improve_e_sharpen_mm6hlh.png"
+          alt="Dunga Tejas Logo">
+      </a>
+    </div>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="#home" class="a-element">Home</a>
+      <a href="#about" class="a-element">About</a>
+      <a href="#Services" class="a-element">Services</a>
+      <a href="#contact" class="a-element">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    <section class="home" id="home">
+      <div class="container">
+        <!-- Image is first in the HTML for mobile view (top) -->
+        <div class="home-image">
+          <img class="image-logo"
+            src="https://res.cloudinary.com/deqfgxqqe/image/upload/v1755690463/226E5A0505_lhsmla.jpg"
+            alt="Profile photograph of Dunga Tejas">
+        </div>
+        <!-- Content is second for mobile view (bottom) -->
+        <div class="home-content">
+          <h1 class="home-h1">Hi, I'm <span class="highlight">Dunga Tejas</span></h1>
+          <p class="home-tagline">A passionate UI/UX Developer creating intuitive and beautiful digital experiences.</p>
+          <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-heading">ABOUT ME</h2>
+        <div class="title-underline"></div>
+        <p class="about-p">I'm a UI/UX developer driven by a fascination for how people interact with technology. My
+                journey into
+                this field started with a love for graphic design, which gave me a strong eye for aesthetics,
+                typography, and color theory. I quickly realized I wanted to do more than just create beautiful visuals;
+                I wanted to create experiences that were functional, intuitive, and solved real-world problems. <br><br>
+
+                My design philosophy is rooted in empathy. I believe the best digital products are created with a deep
+                understanding of the user. I enjoy the entire design process, from initial research and creating user
+                flows to building interactive prototypes in Figma. <br><br>
+
+                As someone new to the industry, I am a dedicated and fast learner, always excited to tackle new
+                challenges and collaborate with creative teams. I'm passionate about building products that not only
+                look good but feel good to use.</p>
+      </div>
+    </section>
+
+    <section class="Services" id="Services">
+      <div class="container">
+        <h2 class="section-heading">SERVICES I OFFER</h2>
+        <div class="title-underline"></div>
+        <div class="service-sub-container">
+          <div class="Services-card">
+            <h3 class="sc-h1">UI/UX Design</h3>
+            <p class="sc-p">Translating user needs into intuitive wireframes, user flows, and polished user interfaces.
+            </p>
+          </div>
+          <div class="Services-card">
+            <h3 class="sc-h1">Visual Design</h3>
+            <p class="sc-p">Applying my knowledge of graphic design principles to create compelling visuals and brand
+              identities.</p>
+          </div>
+          <div class="Services-card">
+            <h3 class="sc-h1">Prototyping</h3>
+            <p class="sc-p">Building interactive prototypes in Figma to test, iterate, and validate design concepts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2 class="section-heading">CONTACT US</h2>
+        <div class="title-underline"></div>
+        <div class="contact-info">
+          <p>Dunga Tejas</p>
+          <p>+91 9876543210</p>
+          <p>dunga.tejas1@gmail.com</p>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/tejas_selfish/" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/960px-Instagram-Icon.png"
+              class="social-icon-img" alt="Instagram Profile">
+          </a>
+          <a href="https://github.com/Tejas3157" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Github-desktop-logo-symbol.svg/2048px-Github-desktop-logo-symbol.svg.png"
+              class="social-icon-img" alt="GitHub Profile">
+          </a>
+          <a href="https://www.linkedin.com/in/tejas-dunga-089b8a278" target="_blank" rel="noopener noreferrer">
+            <img src="https://www.svgrepo.com/show/157006/linkedin.svg" class="social-icon-img" alt="LinkedIn Profile">
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Dunga Tejas. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

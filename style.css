@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: black;
+    margin: 0;
+    color: aliceblue;
+}
+
+.navbar {
+    background-color: rgb(40, 39, 39);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+}
+
+.nav-left {
+    padding-left: 30px;
+    
+}
+
+.nav-right {
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.a-element {
+    padding: 10px;
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    font-size: large;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.a-element:hover {
+    color: rgb(59, 211, 59);
+}
+
+.home {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
+    align-items: center;
+}
+
+.home-left {
+    width: 50vw;
+    padding-left: 150px;
+    font-size: larger;
+}
+
+.home-right {
+    padding-right: 150px;
+}
+
+.logo-img {
+    height: 70px;
+}
+
+.image-logo {
+    height: 320px;
+    width: 240px;
+}
+
+.home-h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.home-p {
+    text-align: justify;
+    font-family: "Encode Sans", sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.Services {
+    padding: 50px;
+    text-align: center;
+}
+
+.ser-h1 {
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(59, 211, 59);
+    letter-spacing: 3px;
+    font-size: 50px;
+    font-style: italic;
+}
+
+.service-sub-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.Services-card {
+    border: 2px solid rgb(59, 211, 59);
+    margin: 20px;
+    padding: 20px;
+    width: 400px;
+    transition: transform 0.3s ease;
+}
+.services-card:hover {
+    transform: scale(1.05);
+}
+
+.sc-h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.sc-p {
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact-info {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+}
+.social-icon-img{
+    height: 50px;
+    padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+    
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        position: static; 
+    }
+
+    
+    .home {
+        flex-direction: column-reverse; 
+        height: auto; 
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .home-left, .home-right {
+        width: 100%;
+        padding: 20px 0; 
+    }
+
+    .home-p {
+        text-align: center;
+    }
+
+    .service-sub-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-card {
+        width: 90%; 
+        margin: 15px 0;
+    }
+
+}
